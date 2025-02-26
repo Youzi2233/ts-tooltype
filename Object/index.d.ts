@@ -25,8 +25,11 @@ export type OmitKeyType<Obj extends object, Type> = Omit<
 >;
 
 /**
- * 指定K为可选，K可传联合类型表示指定多个key可选
- * @example type R = PickPartial<{a: 1, b: 2, c: 3}, "a" | "b">; //{a?: 1, b?: 2, c: 3}
+ * 指定对象中的Key为可选，Key可传联合类型表示指定多个Key可选
+ * @example PickPartial<{a: 1, b: 2, c: 3}, "a" | "b">; //{a?: 1, b?: 2, c: 3}
  */
-export type PickPartial<T extends object, K extends keyof T> = Omit<T, K> &
-  Partial<Pick<T, K>>;
+export type PickPartial<Obj extends object, Key extends keyof Obj> = Omit<
+  Obj,
+  Key
+> &
+  Partial<Pick<Obj, Key>>;
