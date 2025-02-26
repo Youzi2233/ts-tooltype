@@ -1,0 +1,12 @@
+{
+  "name": "ts-tooltype",
+  "version": "1.0.0",
+  "description": "Common TypeScript generic tool types at work",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["typescript", "tools", "types", "generic"],
+  "author": "",
+  "license": "ISC"
+}
