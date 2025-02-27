@@ -1,4 +1,22 @@
 /**
+ * 深合并对象类型
+ * @example DeepMerge<{ a: {a: 1, b: 3}; }, { a: {a: 3, c: 3}; }>; // {a: { a: 3; b: 3; c: 3; } }
+ */
+export type DeepMerge<A extends object, B extends object> = {
+  [P in keyof A | keyof B]: P extends keyof B
+    ? B[P] extends object
+      ? P extends keyof A
+        ? A[P] extends object
+          ? DeepMerge<A[P], B[P]>
+          : B[P]
+        : B[P]
+      : B[P]
+    : P extends keyof A
+    ? A[P]
+    : never;
+};
+
+/**
  * 获取对象中指定类型的key的联合类型
  * @example SelectTypeKey<{ a: 1; b: true; c: 3 }, number>; // 'a' | 'c'
  */
